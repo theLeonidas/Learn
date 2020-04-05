@@ -1,0 +1,23 @@
+class Solution {
+    public void sortColors(int[] nums) {
+
+        //brute Force method - 1
+        //Two pass
+        int k = 0;
+
+        //All zeroes fitted to the left.
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                nums[i] = nums[k];
+                nums[k++] = 0;
+            }
+        }
+
+        for (int j = k; j < nums.length; j++) {
+            if (nums[j] == 1) {
+                nums[j] = nums[k];
+                nums[k++] = 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+class Solution {
+    public void sortColors(int[] nums) {
+
+        //Single pass solution
+
+
+        int i0 = -1, i1 = -1, j = nums.length - 1, i = 0;
+        while (i <= j) {
+            if (nums[i] == 0) {
+                //if only 1 has already appeared
+                if (i1 > -1) {
+                    nums[i1++] = 0;
+                    nums[i] = 1;
+                }
+                i0++;
+                i++;
+            } else if (nums[i] == 2) {
+                while (j > i && nums[j] == 2) j--;
+                nums[i] = nums[j];
+                nums[j] = 2;
+                j--;
+            } else {
+                if (i1 == -1)
+                    i1 = i;
+                i++;
+            }
+        }
+
+    }
+}
