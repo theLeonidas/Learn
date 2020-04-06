@@ -12,7 +12,8 @@ class Solution {
                 nums[k++] = 0;
             }
         }
-
+        
+        //Fitting in the remaining 1s and 2s.
         for (int j = k; j < nums.length; j++) {
             if (nums[j] == 1) {
                 nums[j] = nums[k];
